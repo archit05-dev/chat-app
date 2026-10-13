@@ -35,12 +35,12 @@ public class MessageService {
             String currentUserEmail,
             Long conversationId) {
 
-        // Find the currently authenticated user.
+
         User currentUser = userRepository.findByEmail(currentUserEmail)
                 .orElseThrow(() ->
                         new IllegalArgumentException("User not found"));
 
-        // Check whether this user belongs to the conversation.
+
         boolean isParticipant =
                 participantRepository
                         .existsByConversationIdAndUserId(
@@ -54,7 +54,7 @@ public class MessageService {
             );
         }
 
-        // Fetch messages from oldest to newest.
+
         List<Message> messages =
                 messageRepository
                         .findByConversationIdOrderByCreatedAtAsc(
