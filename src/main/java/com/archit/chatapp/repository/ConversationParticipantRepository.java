@@ -12,6 +12,8 @@ public interface ConversationParticipantRepository
 
     List<ConversationParticipant> findByUserId(Long userId);
 
+    List<ConversationParticipant> findByConversationId(Long conversationId);
+
 
     boolean existsByConversationIdAndUserId(
             Long conversationId, Long userId);
